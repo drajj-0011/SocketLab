@@ -1,0 +1,6 @@
+node_modules/
+dist/
+*.exe
+*.o
+socketlab
+.vscode/

@@ -1,0 +1,15 @@
+cmake_minimum_required(VERSION 3.16)
+project(socketlab LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+add_executable(socketlab server/main.cpp)
+if(MSVC)
+    target_compile_options(socketlab PRIVATE /W4)
+else()
+    target_compile_options(socketlab PRIVATE -Wall -Wextra -Wpedantic)
+endif()
+if(WIN32)
+    target_link_libraries(socketlab PRIVATE ws2_32)
+endif()
